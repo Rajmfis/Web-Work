@@ -1,8 +1,7 @@
 
-function validate()  {  
-		
+function validate()  {  		
 	var inputEmail=document.myform.email.value;//picking the email field value 
-	var name=document.myform.name.value;  
+	var name=document.myform.firstName.value;  
 	var phone=document.myform.contact.value;
 	var firstname=document.myform.firstName.value;
 	var lastname=document.myform.lastName.value;
@@ -15,41 +14,29 @@ function validate()  {
 	var checkPhone=regexPhonePattern.test(phone);
 
 	if(firstname===""){
-		var para = document.createElement("P");
-  		para.innerHTML = "Please enter firstname";
-  		para.style.color="red";
-  		document.getElementById("first-name").appendChild(para);
+		document.getElementById('firstName').innerHTML =" ** Please fill the firstName field";
+		document.getElementById('firstName').style.color="red";
 	}
 	if(lastname===""){
-		var para = document.createElement("P");
-  		para.innerHTML = "Please enter lastname";
-  		para.style.color="red";
-  		document.getElementById("last-name").appendChild(para);
+		document.getElementById('lastName').innerHTML =" ** Please fill the lastName field";
+		document.getElementById('lastName').style.color="red";
 	}
 	if(inputEmail===""){
-		var para = document.createElement("P");
-  		para.innerHTML = "Please enter email";
-  		para.style.color="red";
-  		document.getElementById("email").appendChild(para);
+		document.getElementById('Email').innerHTML =" ** Please fill the inputEmail field";
+		document.getElementById('Email').style.color="red";
 	}
 	if(phone===""){
-		var para = document.createElement("P");
-  		para.innerHTML = "Please enter phone";
-  		para.style.color="red";
-  		document.getElementById("contact").appendChild(para);
+		document.getElementById('Contact').innerHTML =" ** Please fill the phone field";
+		document.getElementById('Contact').style.color="red";
 	}
 	if(password===""){
-		var para = document.createElement("P");
-  		para.innerHTML = "Please enter password";
-  		para.style.color="red";
-  		document.getElementById("password").appendChild(para);
+		document.getElementById('Password').innerHTML =" ** Please fill the password field";
+		document.getElementById('Password').style.color="red";
 	}
 	if(password2===""){
-		var para = document.createElement("P");
-  		para.innerHTML = "Please enter confirm password";
-  		para.style.color="red";
-  		document.getElementById("password2").appendChild(para);
-  		return false;
+		document.getElementById('Password2').innerHTML =" ** Please fill the password2 field";
+		document.getElementById('Password2').style.color="red";
+		return false;
 	}
 	if(checkPhone){  
   		if(checkEmail){ 
@@ -58,25 +45,43 @@ function validate()  {
   		 }
  	}
   	if(checkEmail===false && checkPhone===false){
- 		alert("You have entered wrong email id and phone number");
+  		document.getElementById('Contact').innerHTML =" ** Entered Contact no is wrong ";
+  		document.getElementById('Email').innerHTML =" ** Entered Email id is wrong ";
+		document.getElementById('Contact').style.color="red";
+		document.getElementById('Email').style.color="red";
   		return false;
   	}else if(checkEmail===true && checkPhone===false){
-  		alert("You have entered wrong phone number");
+  		document.getElementById('Contact').innerHTML =" ** Entered contact no is wrong";
+		document.getElementById('Contact').style.color="red";
   		return false;
   	}else if(checkEmail===false && checkPhone===true){
-  		alert("You have entered wrong email id");
+  		document.getElementById('Email').innerHTML =" ** Entered email is incorrect";
+		document.getElementById('Email').style.color="red";
   		return false;
   	}
 }
 
-document.querySelector("#colorpick").addEventListener("click",function(){
-	document.body.style.backgroundColor=document.getElementById("colorpick").value;
-});
+
+
+// var colorpick=document.getElementById("colorpick");
+// colorpick.addEventListener('onclick',function(){
+// 	document.body.style.backgroundColor=colorpick.value;
+// });
+document.getElementById("colorpick").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.body.style.backgroundColor=document.getElementById("colorpick").value;
+}
+
+// var colorpick=document.getElementById('colorpick');
+// alert(colorpick.value);
+// function changeColor(color){
+// 	document.body.style.backgroundColor=color;
+// }
 // document.body.style.backgroundColor=document.getElementById("colorpick").value;
 // 	document.getElementById("colorpick").addEventListener('click',function(){
 // 		document.body.style.backgroundColor=document.getElementById("colorpick").value;
 // 	});
-
 
 function reloadPage(){
 	window.location.reload();
