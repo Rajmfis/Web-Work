@@ -1,0 +1,42 @@
+* {
+    font-family: Raleway;
+  }
+
+  body {
+    background-color: #344a72;
+  }
+  #container {
+    margin: 30px 400px;
+    padding: 10px 80px;
+  }
+  .form-wrap {
+    background-color: white;
+    padding: 10px 40px;
+      }
+      h1,p {
+        text-align: center;
+      }`
+      a:hover{
+        text-decoration: none;
+      }
+
+      .bottom-text {
+        padding-top: 20px;
+        font-family: Raleway;
+
+      }
+      footer {
+       text-align:center;     
+      }
+      footer p {
+       color: #f2f2f2;
+      }
+      .colorpicker{
+        color: #0066ff;
+      }
+      footer a,.bottom-text a{
+        color:#1affa3;
+      }
+      footer a:hover{
+        color: white;
+      }

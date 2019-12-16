@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Styling</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style2.css">
+    <script src="formJs.js"></script>
+
+  </head>
+  <body>
+    <div id="container">
+      <div class="form-wrap">
+        <h1>Sign Up</h1>
+        <p>It's free and only takes a minute</p>
+        <form method="post" name="myform" onsubmit=" return validate();">
+          <div id="first-name">
+            <label for="first-name">First Name</label><br>
+            <input type="text" name="firstName" id="first-name" size="40"/>
+          </div>
+          <div id="last-name">
+            <label for="last-name">Last Name</label><br>
+            <input type="text" name="lastName" id="last-name"size="40" />
+          </div>
+          <div id="email">
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" size="40"/>
+          </div>
+          <div id="contact">
+            <label for="contact">Contact No.</label><br>
+            <input type="contact" name="contact" id="contact" size="40"/>
+          </div>
+          <div id="password">
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password" size="40"/>
+          </div>
+          <div id="password2">
+            <label for="password2">Confirm Password</label><br>
+            <input type="password" name="pasword2" id="password2" size="40"/>
+          </div>
+          <br>
+          <input type="submit" value="Submit" class="btn btn-primary">
+          <p class="bottom-text">
+            By clicking the Sign Up button, you agree to our
+            <a href="#">Terms & Conditions</a> and
+            <a href="#">Privacy Policy</a>
+          </p>
+        </form>
+      </div>
+      <footer>
+        <p>Already have an account? <a href="#">Login Here</a></p>
+        <p class="colorpicker">Pick Your color:           
+          <input type="color" id="colorpick" name="colorpicker" >
+          <!-- <input type="submit" class="submitbtn" value="submit" onclick="colorPicker();"><br><br> -->
+          <input type="submit" class="submitbtn" name="" value="Refresh" onclick="reloadPage();">
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
