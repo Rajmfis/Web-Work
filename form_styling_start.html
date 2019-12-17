@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style2.css">
     <script src="formJs.js"></script>
-
   </head>
   <body>
     <div id="container">
       <div class="form-wrap">
         <h1>Sign Up</h1>
         <p>It's free and only takes a minute</p>
-        <form action="#" method="post" name="myform" onsubmit=" return validate();">
+        <form action="#" method="post" name="myform" onsubmit="return validate();">
           <div id="first-name">
             <label for="first-name">First Name</label><br>
             <input type="text" name="firstName" id="first-name" size="40"/>
@@ -41,21 +40,44 @@
             <label for="password">Password</label><br>
             <input type="password" name="password" id="password" size="40"/>
             <span id="Password"></span>
-          </div>
-          <div id="password2">
-            <label for="password2">Confirm Password</label><br>
-            <input type="password" name="pasword2" id="password2" size="40"/>
-            <span id="Password2"></span>
-          </div>
-          <br>
-          <input type="submit" value="Submit" class="btn btn-primary">
-          <p class="bottom-text">
-            By clicking the Sign Up button, you agree to our
-            <a href="#">Terms & Conditions</a> and
-            <a href="#">Privacy Policy</a>
-          </p>
-        </form>
-      </div>
+          </div><br>
+         <!--  <label>Please select Region</label>
+            <span class="dropdownmenu">
+              <select>
+                <option>India
+                   <option>Kolkata</option>
+                   <option>UttarPradesh</option> 
+                </option>creating sublists
+                <option>Pakistan
+                   <option>Islamabad</option>
+                   <option>Karachi</option> 
+                </option>
+                <option>Bangladesh</option>
+              </select>
+            </span>
+        <br><br> -->
+        <input type="submit" value="Submit" class="btn btn-primary">
+        <p class="bottom-text">
+          By clicking the Sign Up button, you agree to our
+          <a href="#">Terms & Conditions</a> and
+          <a href="#">Privacy Policy</a>
+        </p>
+      </form>  
+    <table id="table" border="1">
+      <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>ContactNo.</th>
+      </tr>
+      <tr>
+        <td id="fname"></td>
+        <td id="lname"></td>
+        <td id="mailid"></td>
+        <td id="phoneno"></td>
+      </tr>
+    </table>
+    </div>
       <footer>
         <p>Already have an account? <a href="#">Login Here</a></p>
         <p class="colorpicker">Pick Your color:           
