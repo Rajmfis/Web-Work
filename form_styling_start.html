@@ -7,8 +7,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style2.css">
-    <script src="formJs.js"></script>
+    <link rel="stylesheet" type="text/css" href="style2.css">    
   </head>
   <body>
     <div id="container">
@@ -17,64 +16,70 @@
         <p>It's free and only takes a minute</p>
         <form action="#" method="post" name="myform" onsubmit="return validate();">
           <div id="first-name">
-            <label for="first-name">First Name</label><br>
-            <input type="text" name="firstName" id="first-name" size="40"/>
+            <label for="first-name" class="required">First Name</label><br>
+            <input type="text" name="firstName" id="firstname" size="40"/>
             <span id="firstName"></span>
           </div>
           <div id="last-name">
-            <label for="last-name">Last Name</label><br>
-            <input type="text" name="lastName" id="last-name"size="40" />
+            <label for="last-name" >Last Name</label><br>
+            <input type="text" name="lastName" id="lastname"size="40" />
             <span id="lastName"></span>
           </div>
           <div id="email">
-            <label for="email">Email</label><br>
-            <input type="email" name="email" id="email" size="40"/>
+            <label for="email" class="required">Email</label><br>
+            <input type="email" name="email" id="emailId" size="40"/>
             <span id="Email"></span>
           </div>
           <div id="contact">
-            <label for="contact">Contact No.</label><br>
-            <input type="contact" name="contact" id="contact" size="40"/>
+            <label for="contact" class="required">Contact No.</label><br>
+            <input type="contact" name="contact" id="contactno" size="40"/>
             <span id="Contact"></span>
           </div>
           <div id="password">
-            <label for="password">Password</label><br>
-            <input type="password" name="password" id="password" size="40"/>
+            <label for="password" class="required">Password</label><br>
+            <input type="password" name="password" id="pwd" size="40"/>
             <span id="Password"></span>
           </div><br>
-         <!--  <label>Please select Region</label>
-            <span class="dropdownmenu">
-              <select>
-                <option>India
-                   <option>Kolkata</option>
-                   <option>UttarPradesh</option> 
-                </option>creating sublists
-                <option>Pakistan
-                   <option>Islamabad</option>
-                   <option>Karachi</option> 
-                </option>
-                <option>Bangladesh</option>
-              </select>
-            </span>
-        <br><br> -->
-        <input type="submit" value="Submit" class="btn btn-primary">
+         <label>Please select Region</label>
+            <ul id="dropdown">
+              <li><p>Select</p>
+                <ul>
+                  <li><p>India</p></li>
+                  <li><p>Pakistan</p>
+                  <ul>
+                    <li><p>Karachi</p></li>
+                    <li><p>Islamabad</p></li>
+                    <li><p>Sialkot</p></li>
+                  </ul>
+                  </li>
+                <li><p>Bangladesh</p></li>
+              </ul>
+              </li>
+            </ul> 
+        <input type="submit" value="Submit" class="btn btn-primary" >
+        <!-- <input type="reset" name=""> -->
         <p class="bottom-text">
           By clicking the Sign Up button, you agree to our
           <a href="#">Terms & Conditions</a> and
           <a href="#">Privacy Policy</a>
         </p>
-      </form>  
+      </form>
     <table id="table" border="1">
       <tr>
+        <th>ID</th>
         <th>FirstName</th>
         <th>LastName</th>
         <th>Email</th>
         <th>ContactNo.</th>
+        <th>&#10005;</th>
       </tr>
       <tr>
+        <td id="fname"></td>
         <td id="fname"></td>
         <td id="lname"></td>
         <td id="mailid"></td>
         <td id="phoneno"></td>
+        <td id="delete" onclick="deleteUser(this);"></td>
       </tr>
     </table>
     </div>
@@ -87,5 +92,6 @@
         </p>
       </footer>
     </div>
+    <script src="formJs.js"></script>
   </body>
 </html>

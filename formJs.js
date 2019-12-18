@@ -22,29 +22,34 @@ function validate()  {
 
 	if(firstname===""){
 		// alert("hi js tested");
-		document.getElementById('firstName').innerHTML =" ** Please fill the firstName field";
+		document.getElementById('firstName').innerHTML ="  Please fill the firstName field";
 		document.getElementById('firstName').style.color="red";
 		allValue=false;
+		// return false;
 	}
 	if(lastname===""){
-		document.getElementById('lastName').innerHTML =" ** Please fill the lastName field";
+		document.getElementById('lastName').innerHTML ="  Please fill the lastName field";
 		document.getElementById('lastName').style.color="red";
 		allValue=false;
+		// return false;
 	}
 	if(inputEmail===""){
-		document.getElementById('Email').innerHTML =" ** Please fill the inputEmail field";
+		document.getElementById('Email').innerHTML ="  Please fill the inputEmail field";
 		document.getElementById('Email').style.color="red";
 		allValue=false;
+		// return false;
 	}
 	if(phone===""){
-		document.getElementById('Contact').innerHTML =" ** Please fill the phone field";
+		document.getElementById('Contact').innerHTML ="  Please fill the phone field";
 		document.getElementById('Contact').style.color="red";
 		allValue=false;
+		// return false;
 	}
 	if(password===""){
-		document.getElementById('Password').innerHTML =" ** Please fill the password field";
+		document.getElementById('Password').innerHTML ="  Please fill the password field";
 		document.getElementById('Password').style.color="red";
 		allValue=false;
+		// return false;
 	}
 	// if(regionvalue==='India'){
 
@@ -53,19 +58,18 @@ function validate()  {
 	// }else{
 
 	// }
+	// if(allValue===false){
+	// 	return false;
+	// }
 	if(checkPhone&&allValue){  
   		if(checkEmail){ 
-  			var mytable = document.getElementById('table');
-			var row = table.insertRow(globalVariable++);
-  			var cell1 = row.insertCell(0);
-  			var cell2 = row.insertCell(1);
-  			var cell3 = row.insertCell(2);
-  			var cell4 = row.insertCell(3);
-  			cell1.innerHTML = firstname;
-  			cell2.innerHTML = lastname;
-  			cell3.innerHTML=inputEmail;
-  			cell4.innerHTML=phone;
-  			// document.getElementById("myForm").reset();
+  	// 		var e = document.getElementById("dropdownmenu");
+			// var result = e.options[e.selectedIndex].text;
+			// alert(result);
+  			createTable(firstname,lastname,inputEmail,phone);
+  			resetForm();
+  			
+  			// alert(document.getElementById('dropdownmenu').options[e.selectedIndex].value);
   			return false;
   					// alert(table.rows.length);			  					
      				//rIndex = this.rowIndex;
@@ -114,9 +118,62 @@ function validate()  {
 // }
 // document.body.style.backgroundColor=document.getElementById("colorpick").value;
 document.getElementById("colorpick").addEventListener('change',function(){
- 		document.body.style.backgroundColor=document.getElementById("colorpick").value;
+ 	document.body.style.backgroundColor=document.getElementById("colorpick").value;
  	});
+// document.getElementsByClassName("btn").addEventListener('click',resetForm);
+// function removeRequiredTags(){
 
+// 	document.getElementById('firstName').remove();
+// 	document.getElementById('lastName').remove();
+// 	document.getElementById('Email').remove();
+// 	document.getElementById('Contact').remove();
+// 	document.getElementById('Password').remove();
+// }
+// document.querySelector('ul').addEventListener('click', countryvalue(e));{   // 1.
+  
+
+function resetForm(){
+	document.getElementById('firstname').value = "";
+  	document.getElementById('lastname').value = "";
+  	document.getElementById('emailId').value = "";
+  	document.getElementById('contactno').value = "";
+  	document.getElementById('pwd').value = "";		
+}
+// function countryvalue(e){
+// 	var selected;
+// 	if(e.target.tagName === 'LI') {  
+// 		var mytable = document.getElementById('table');
+// 		var cell5 = row.insertCell(3);
+// 		cell5.innerHTML=
+// 	}
+// }
+
+function createTable(firstname,lastname,inputEmail,phone){
+	var mytable = document.getElementById('table');
+	var row = table.insertRow(globalVariable++);
+  	var cell1 = row.insertCell(0);
+  	var cell2 = row.insertCell(1);
+  	var cell3 = row.insertCell(2);
+  	var cell4 = row.insertCell(3);
+  	var cell5 = row.insertCell(4);
+  	var cell6 = row.insertCell(5);
+	cell1.innerHTML = globalVariable-1;
+  	cell2.innerHTML = firstname;
+  	cell3.innerHTML=lastname;
+  	cell4.innerHTML=inputEmail;
+  	cell5.innerHTML=phone;
+  	cell6.innerHTML='&#10005';
+}
+// document.getElementById('delete').addEventListener('click',function(e){
+// 	var i = e.parentNode.parentNode.rowIndex;
+// 	alert(i);
+//   	document.getElementById("table").deleteRow(i);
+// });//adding event listener
+function deleteUser(element){
+	var i = element.parentNode.parentNode.rowIndex;
+	alert(i);
+  	document.getElementById("table").deleteRow(i);
+}
 function reloadPage(){
 	window.location.reload();
 }
