@@ -163,17 +163,32 @@ function createTable(firstname,lastname,inputEmail,phone){
   	cell4.innerHTML=inputEmail;
   	cell5.innerHTML=phone;
   	cell6.innerHTML='&#10005';
+  	cell6.setAttribute("onclick","deleteUser(this);");//setattribute worked here for delete one
+  
 }
 // document.getElementById('delete').addEventListener('click',function(e){
 // 	var i = e.parentNode.parentNode.rowIndex;
 // 	alert(i);
-//   	document.getElementById("table").deleteRow(i);
+//   	// /document.getElementById("table").deleteRow(i);
 // });//adding event listener
 function deleteUser(element){
-	var i = element.parentNode.parentNode.rowIndex;
-	alert(i);
-  	document.getElementById("table").deleteRow(i);
+	// var i = element.parentNode.parentNode.rowIndex;
+	// alert(element.parentNode.rowIndex);
+  	document.getElementById("table").deleteRow(element.parentNode.rowIndex);
 }
 function reloadPage(){
 	window.location.reload();
 }
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+// 	var email = document.getElementById('email');
+// });
+// function checkEmail(email) {
+//     var regexEmailPattern=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$/;
+//     if(regexEmailPattern.test(email) === false) {
+//       email.style.border = "1px solid red";
+//     }else if (regexEmailPattern.test(email) === true) { // if was missing here
+//       email.style.border = "1px solid green";
+//     }
+// }

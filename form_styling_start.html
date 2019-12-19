@@ -27,7 +27,7 @@
           </div>
           <div id="email">
             <label for="email" class="required">Email</label><br>
-            <input type="email" name="email" id="emailId" size="40"/>
+            <input type="email" name="email" id="emailId" oninput="checkEmail(this)" size="40"/>
             <span id="Email"></span>
           </div>
           <div id="contact">
@@ -74,12 +74,12 @@
         <th>&#10005;</th>
       </tr>
       <tr>
-        <td id="fname"></td>
+        <td id="ID"></td>
         <td id="fname"></td>
         <td id="lname"></td>
         <td id="mailid"></td>
         <td id="phoneno"></td>
-        <td id="delete" onclick="deleteUser(this);"></td>
+        <td id="delete"></td>
       </tr>
     </table>
     </div>
