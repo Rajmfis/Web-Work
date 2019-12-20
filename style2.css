@@ -4,6 +4,20 @@
 body {
   background-color: #344a72;
 }
+input[type=email]:invalid {
+  content: "invalid input";
+    border-color: #900;
+     outline: none;
+    background-color: #FDD;
+}
+
+input[type=email]:focus:invalid {
+   
+}
+input[type=email]:focus:valid {
+    outline:none;
+    background-color:#80ffaa;
+}
 ul {
   list-style: none;
   padding: 0;
@@ -72,7 +86,7 @@ ul:after { clear: both; }
   display: block;
 }*/
 #container {
-  margin: 30px 400px;
+  margin: 30px 350px;
   padding: 10px 80px;
 }
 .form-wrap {

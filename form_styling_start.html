@@ -14,31 +14,31 @@
       <div class="form-wrap">
         <h1>Sign Up</h1>
         <p>It's free and only takes a minute</p>
-        <form action="#" method="post" name="myform" onsubmit="return validate();">
+        <form action="#" id="form" method="post" name="myform" onsubmit="return validate();">
           <div id="first-name">
             <label for="first-name" class="required">First Name</label><br>
             <input type="text" name="firstName" id="firstname" size="40"/>
-            <span id="firstName"></span>
+            <div id="firstName" class="remove"></div>
           </div>
           <div id="last-name">
             <label for="last-name" >Last Name</label><br>
             <input type="text" name="lastName" id="lastname"size="40" />
-            <span id="lastName"></span>
+            <div id="lastName" class="remove"></div>
           </div>
           <div id="email">
             <label for="email" class="required">Email</label><br>
-            <input type="email" name="email" id="emailId" oninput="checkEmail(this)" size="40"/>
-            <span id="Email"></span>
+            <input type="email" name="email" id="emailId" pattern="^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$" size="40"/>
+            <div id="Email" class="remove"></div>
           </div>
           <div id="contact">
             <label for="contact" class="required">Contact No.</label><br>
-            <input type="contact" name="contact" id="contactno" size="40"/>
-            <span id="Contact"></span>
+            <input type="text" name="contact" id="contactno" size="40"/>
+            <div id="Contact" class="remove"></div>
           </div>
           <div id="password">
             <label for="password" class="required">Password</label><br>
             <input type="password" name="password" id="pwd" size="40"/>
-            <span id="Password"></span>
+            <div id="Password" class="remove"></div>
           </div><br>
          <label>Please select Region</label>
             <ul id="dropdown">
@@ -56,7 +56,8 @@
               </ul>
               </li>
             </ul> 
-        <input type="submit" value="Submit" class="btn btn-primary" >
+        <input type="submit" value="Submit" class="btn btn-primary" id="submit">
+
         <!-- <input type="reset" name=""> -->
         <p class="bottom-text">
           By clicking the Sign Up button, you agree to our
@@ -72,6 +73,7 @@
         <th>Email</th>
         <th>ContactNo.</th>
         <th>&#10005;</th>
+        <th>Edit</th>
       </tr>
       <tr>
         <td id="ID"></td>
@@ -80,6 +82,7 @@
         <td id="mailid"></td>
         <td id="phoneno"></td>
         <td id="delete"></td>
+        <td id="edit"></td>
       </tr>
     </table>
     </div>
