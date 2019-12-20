@@ -1,5 +1,6 @@
 var globalVariable=1;
 var bool=false;
+var city;
 function validate()  {  
 	//remove previously required** elements
 	// document.getElementById("Contact").remove();
@@ -51,16 +52,7 @@ function validate()  {
 		allValue=false;
 		return false;
 	}
-	// if(regionvalue==='India'){
-
-	// }else if(regionvalue==='Pakistan'){
-
-	// }else{
-
-	// }
-	// if(allValue===false){
-	// 	return false;
-	// }
+	
 	if(checkPhone&&allValue){  
   		if(checkEmail){ 
   	// 		var e = document.getElementById("dropdownmenu");
@@ -138,10 +130,10 @@ function createTable(firstname,lastname,inputEmail,phone){
 
 
   	// document.getElementsByClassName('remove').remove();
-	// document.getElementById('lastName').remove();
-	// document.getElementById('Email').remove();
-	// document.getElementById('Contact').remove();
-	// document.getElementById('Password').remove();	
+	document.getElementById('lastName').remove();
+	document.getElementById('Email').remove();
+	document.getElementById('Contact').remove();
+	document.getElementById('Password').remove();	
 }
 // document.getElementById('delete').addEventListener('click',function(e){
 // 	var i = e.parentNode.parentNode.rowIndex;
@@ -195,6 +187,13 @@ function deleteUser(element){
 	// alert(element.parentNode.rowIndex);
   	document.getElementById("table").deleteRow(element.parentNode.rowIndex);
 }
+
+function valueCity(element){
+	city=element.value;
+	document.getElementById('country-list').hide();
+	alert(element.value);
+}
+
 function reloadPage(){
 	window.location.reload();
 }
