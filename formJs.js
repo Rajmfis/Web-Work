@@ -110,7 +110,7 @@ function resetForm(){
 function createTable(firstname,lastname,inputEmail,phone){
 	var mytable = document.getElementById('table');
 	// idSet.push(globalVariable+1);
-	var row = table.insertRow(globalVariable++);
+	var row = mytable.insertRow(globalVariable++);
   	var cell1 = row.insertCell(0);
   	var cell2 = row.insertCell(1);
   	var cell3 = row.insertCell(2);
@@ -118,6 +118,7 @@ function createTable(firstname,lastname,inputEmail,phone){
   	var cell5 = row.insertCell(4);
   	var cell6 = row.insertCell(5);
   	var cell7 = row.insertCell(6);
+  	var cell8 = row.insertCell(7);
 	cell1.innerHTML = globalVariable-1;
   	cell2.innerHTML = firstname;
   	cell3.innerHTML=lastname;
@@ -127,13 +128,13 @@ function createTable(firstname,lastname,inputEmail,phone){
   	cell6.setAttribute("onclick","deleteUser(this);");//setattribute worked here for delete one
   	cell7.innerHTML='<button>Edit</button>';
   	cell7.setAttribute("onclick","editUser(this);");
-
-
+  	cell8.innerHTML=city;
+  	document.getElementById('cityname').innerHTML="Select";
   	// document.getElementsByClassName('remove').remove();
-	document.getElementById('lastName').remove();
-	document.getElementById('Email').remove();
-	document.getElementById('Contact').remove();
-	document.getElementById('Password').remove();	
+	// document.getElementById('lastName').remove();
+	// document.getElementById('Email').remove();
+	// document.getElementById('Contact').remove();
+	// document.getElementById('Password').remove();	
 }
 // document.getElementById('delete').addEventListener('click',function(e){
 // 	var i = e.parentNode.parentNode.rowIndex;
@@ -190,8 +191,9 @@ function deleteUser(element){
 
 function valueCity(element){
 	city=element.value;
-	document.getElementById('country-list').hide();
-	alert(element.value);
+	document.getElementById('cityname').innerHTML=city;
+	// document.getElementById('country-list').hide();
+	// alert(element.value);
 }
 
 function reloadPage(){
