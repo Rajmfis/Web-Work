@@ -3,11 +3,7 @@ var bool=false;
 var city;
 function validate()  {  
 	//remove previously required** elements
-	// document.getElementById("Contact").remove();
-	// document.getElementById("Password").remove();
-	// document.getElementById("Email").remove();
-	// document.getElementById("lastName").remove();
-	// document.getElementById("firstName").remove();
+	
 
 	var inputEmail=document.myform.email.value;//picking the email field value   
 	var phone=document.myform.contact.value;
@@ -58,10 +54,15 @@ function validate()  {
   	// 		var e = document.getElementById("dropdownmenu");
 			// var result = e.options[e.selectedIndex].text;
 			// alert(result);
+			document.getElementById("Password").innerText="";
+			document.getElementById("Email").innerText="";
+			document.getElementById("lastName").innerText="";
+			document.getElementById("firstName").innerText="";
+			document.getElementById("Contact").innerText="";
 			createTable(firstname,lastname,inputEmail,phone);
-			resetForm();
-  			
-  			
+			resetForm();  			
+  			// document.getElementsByClassName("remove").remove(); //not working here also page getting refreshed
+
   			// alert(document.getElementById('dropdownmenu').options[e.selectedIndex].value);
   			return false;
   					// alert(table.rows.length);			  					
@@ -104,6 +105,12 @@ function resetForm(){
   	document.getElementById('emailId').value = "";
   	document.getElementById('contactno').value = "";
   	document.getElementById('pwd').value = "";	
+
+ 	//document.getElementsByClassName('remove').remove();
+	// document.getElementById('lastName').remove();
+	// document.getElementById('Email').remove();
+	// document.getElementById('Contact').remove();
+	// document.getElementById('Password').remove();	
 }
 
 
@@ -136,11 +143,6 @@ function createTable(firstname,lastname,inputEmail,phone){
 	// document.getElementById('Contact').remove();
 	// document.getElementById('Password').remove();	
 }
-// document.getElementById('delete').addEventListener('click',function(e){
-// 	var i = e.parentNode.parentNode.rowIndex;
-// 	alert(i);
-//   	// /document.getElementById("table").deleteRow(i);
-// });//adding event listener
 
 function editUser(user){
 
@@ -164,21 +166,15 @@ function scrollToTop() {
 } 
 function editHtmlTbleSelectedRow(rIndex,id) {
 	// alert(id+" "+rIndex);
-	var mytable = document.getElementById('table');
-    var fname = document.getElementById("firstname").value,
-        lname = document.getElementById("lastname").value,
-        contactno=document.getElementById("contactno").value,
-        emailId = document.getElementById("emailId").value;
+	// var mytable = document.getElementById('table');
+ //    var fname = document.getElementById("firstname").value,
+ //        lname = document.getElementById("lastname").value,
+ //        contactno=document.getElementById("contactno").value,
+ //        emailId = document.getElementById("emailId").value;
     	
     	removeSelectedRow(rIndex);
 }
-// function editValues(id){
-// 		mytable.rows[rIndex].cells[0].innerHTML = id;
-//         mytable.rows[rIndex].cells[1].innerHTML = fname;
-//         mytable.rows[rIndex].cells[2].innerHTML = lname;
-//         mytable.rows[rIndex].cells[3].innerHTML = emailId;
-//     	mytable.rows[rIndex].cells[4].innerHTML = contactno;
-// }
+
 function removeSelectedRow(rIndex) {
     table.deleteRow(rIndex);
 }
@@ -203,7 +199,7 @@ function reloadPage(){
 // document.addEventListener('DOMContentLoaded', function() {
 // 	var email = document.getElementById('email');
 // });
-// function checkEmail(email) {
+// function checkEmail(email){
 //     var regexEmailPattern=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$/;
 //     if(regexEmailPattern.test(email) === false) {
 //       email.style.border = "1px solid red";

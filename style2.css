@@ -11,9 +11,6 @@ input[type=email]:invalid {
   background-color: #FDD;
 }
 
-input[type=email]:focus:invalid {
-   
-}
 input[type=email]:focus:valid {
     outline:none;
     background-color:#80ffaa;
@@ -48,15 +45,14 @@ li:hover p { background: #1bc2a2; }
 
 li:hover li p:hover { background: #2c3e50; }
 
-
 ul ul ul {
   left: 100%;
   top: 0;
 }
 ul:before,
 ul:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
+  content: " "; 
+  display: table; 
 }
 
 ul:after { clear: both; }
