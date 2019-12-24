@@ -17,47 +17,57 @@
         <form action="#" id="form" method="post" name="myform" onsubmit="return validate();">
           <div id="first-name">
             <label for="first-name" class="required">First Name</label><br>
-            <input type="text" name="firstName" id="firstname" size="40"/>
+            <input type="text" name="firstName" id="firstname" onkeyup="validateFirstName(this)" size="40"><span id="fnamemessage"></span>
             <div id="firstName" class="remove"></div>
           </div>
           <div id="last-name">
-            <label for="last-name" >Last Name</label><br>
-            <input type="text" name="lastName" id="lastname"size="40" />
+            <label for="last-name">Last Name</label><br>
+            <input type="text" name="lastName" id="lastname" onkeyup="validateLastName(this)" size="40" >
+            <span id="lnamemessage"></span>
             <div id="lastName" class="remove"></div>
           </div>
           <div id="email">
             <label for="email" class="required">Email</label><br>
-            <input type="email" name="email" id="emailId" pattern="^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$" size="40"/>
+            <input type="email" name="email" id="emailId" onkeyup="validateEmail(this)" size="40">
+            <span id="emailmessage"></span>
             <div id="Email" class="remove"></div>
           </div>
           <div id="contact">
             <label for="contact" class="required">Contact No.</label><br>
-            <input type="text" name="contact" id="contactno" size="40"/>
+            <input type="text" name="contact" id="contactno" onkeyup="validateContact(this)" size="40">
+            <span id="contactmessage"></span>
             <div id="Contact" class="remove"></div>
           </div>
           <div id="password">
             <label for="password" class="required">Password</label><br>
-            <input type="password" name="password" id="pwd" size="40"/>
+            <input type="password" name="password" id="pwd" onkeyup="validatePassword(this)" size="40">
+            <span id="passwordmessage"></span>
             <div id="Password" class="remove"></div>
           </div><br>
-         <label>Please select Region</label>
-            <ul id="dropdown">
-              <li><p id="cityname">Select</p>
-                <ul id="country-list">
-                  <li><input type="button" onclick="valueCity(this)" value="India" name="" class="btn btn-primary" ></li>
-                  <li><input type="button" onclick="valueCity(this)"value="Pakistan" name="" class="btn btn-primary">
-                  <ul>
-                    <li><input type="button" onclick="valueCity(this)" value="Karachi" name="" class="btn btn-primary"></li>
-                    <li><input type="button" onclick="valueCity(this)" value="Islamabad" name="" class="btn btn-primary"></li>
-                    <li><input type="button" onclick="valueCity(this)"value="Sialkot" name="" class="btn btn-primary"></li>
-                  </ul>
-                  </li>
-                <li><input type="button" onclick="valueCity(this)" value="Bangladesh" name="" class="btn btn-primary"></li>
-              </ul>
-              </li>
-            </ul> 
+         <label>Region</label>
+            <select>
+              <option>Select</option>
+              <option>India</option>
+              <option>Pakistan</option>
+              <option>Bangladesh</option>
+            </select>
+            <select>
+              <option>Select</option>
+              <option>Delhi</option>
+              <option>UttarPradesh</option>
+              <option>Noida</option>
+              <option>Islamabad</option>
+              <option>Sialkot</option>
+              <option>Karachi</option>
+              <option>Dhaka</option>
+            </select>
+            <select>
+              <option>Select</option>
+              <option>Noida</option>
+              <option>Prayagraj</option>
+            </select>
+            <br><br>
         <input type="submit" value="Submit" class="btn btn-primary" id="submit">
-
         <!-- <input type="reset" name=""> -->
         <p class="bottom-text">
           By clicking the Sign Up button, you agree to our

@@ -3,14 +3,11 @@ var bool=false;
 var city;
 function validate()  {  
 	//remove previously required** elements
-	
-
 	var inputEmail=document.myform.email.value;//picking the email field value   
 	var phone=document.myform.contact.value;
 	var firstname=document.myform.firstName.value;
 	var lastname=document.myform.lastName.value;
 	var password=document.myform.password.value;
-	// var regionvalue=document.getElementById('region').value;
 	var allValue=true;
 	var regexEmailPattern=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$/;
 	var regexPhonePattern=/^([0-9]{10,11})$/;
@@ -22,38 +19,37 @@ function validate()  {
 		document.getElementById('firstName').innerHTML ="  Please fill the firstName field";
 		document.getElementById('firstName').style.color="red";
 		allValue=false;
-		return false;
+		
 	}
 	if(lastname===""){
 		document.getElementById('lastName').innerHTML ="  Please fill the lastName field";
 		document.getElementById('lastName').style.color="red";
 		allValue=false;
-		return false;
+		
 	}
 	if(inputEmail===""){
 		document.getElementById('Email').innerHTML ="  Please fill the inputEmail field";
 		document.getElementById('Email').style.color="red";
 		allValue=false;
-		return false;
+		
 	}
 	if(phone===""){
 		document.getElementById('Contact').innerHTML ="  Please fill the phone field";
 		document.getElementById('Contact').style.color="red";
 		allValue=false;
-		return false;
+		
 	}
 	if(password===""){
 		document.getElementById('Password').innerHTML ="  Please fill the password field";
 		document.getElementById('Password').style.color="red";
 		allValue=false;
+		
+	}
+	if(allValue===false){
 		return false;
 	}
-	
 	if(checkPhone&&allValue){  
   		if(checkEmail){ 
-  	// 		var e = document.getElementById("dropdownmenu");
-			// var result = e.options[e.selectedIndex].text;
-			// alert(result);
 			document.getElementById("Password").innerText="";
 			document.getElementById("Email").innerText="";
 			document.getElementById("lastName").innerText="";
@@ -61,20 +57,7 @@ function validate()  {
 			document.getElementById("Contact").innerText="";
 			createTable(firstname,lastname,inputEmail,phone);
 			resetForm();  			
-  			// document.getElementsByClassName("remove").remove(); //not working here also page getting refreshed
-
-  			// alert(document.getElementById('dropdownmenu').options[e.selectedIndex].value);
-  			return false;
-  					// alert(table.rows.length);			  					
-     				//rIndex = this.rowIndex;
-    	   			// table.rows[1].cells[0].innerHTML = firstname;
-    	   			// alert(document.getElementById("lname"));
-    	   			// myTable.rows[1].cells[0].value = firstname;
-        			// document.getElementById("lname").value = lastname;
-        			// document.getElementById("mailid").value = inputEmail;
-        			// document.getElementById("phoneno").value = phone;    		
-					// alert("Thanks "+firstname+".You will be contacted soon."); 
-  					// alert("Thanks "+firstname+".You will be contacted soon.");
+  			return false;		
  		}
  	}
   	if(checkEmail===false && checkPhone===false){
@@ -96,7 +79,7 @@ function validate()  {
     
 document.getElementById("colorpick").addEventListener('change',function(){
  	document.body.style.backgroundColor=document.getElementById("colorpick").value;
- 	});
+});
 
 
 function resetForm(){
@@ -106,13 +89,12 @@ function resetForm(){
   	document.getElementById('contactno').value = "";
   	document.getElementById('pwd').value = "";	
 
- 	//document.getElementsByClassName('remove').remove();
-	// document.getElementById('lastName').remove();
-	// document.getElementById('Email').remove();
-	// document.getElementById('Contact').remove();
-	// document.getElementById('Password').remove();	
+  	document.getElementById('fnamemessage').innerText="";
+  	document.getElementById('lnamemessage').innerText="";
+  	document.getElementById('emailmessage').innerText="";
+  	document.getElementById('contactmessage').innerText="";
+  	
 }
-
 
 function createTable(firstname,lastname,inputEmail,phone){
 	var mytable = document.getElementById('table');
@@ -135,43 +117,26 @@ function createTable(firstname,lastname,inputEmail,phone){
   	cell6.setAttribute("onclick","deleteUser(this);");//setattribute worked here for delete one
   	cell7.innerHTML='<button>Edit</button>';
   	cell7.setAttribute("onclick","editUser(this);");
-  	cell8.innerHTML=city;
-  	document.getElementById('cityname').innerHTML="Select";
-  	// document.getElementsByClassName('remove').remove();
-	// document.getElementById('lastName').remove();
-	// document.getElementById('Email').remove();
-	// document.getElementById('Contact').remove();
-	// document.getElementById('Password').remove();	
+  	// cell8.innerHTML=city;
+  	// document.getElementById('cityname').innerHTML="Select";
 }
 
 function editUser(user){
-
 	var mytable = document.getElementById('table');
-	// alert(user.parentNode.rowIndex);
-	// alert(mytable.rows[user.parentNode.rowIndex].cells[0].innerText);
 	var id=mytable.rows[user.parentNode.rowIndex].cells[0].innerText;
-	// alert(id);
 	globalVariable=id;//retaining the same id of the user and initialized to the first cell
 	document.getElementById('firstname').value=mytable.rows[user.parentNode.rowIndex].cells[1].innerText;
 	document.getElementById('lastname').value=mytable.rows[user.parentNode.rowIndex].cells[2].innerText;
 	document.getElementById('emailId').value=mytable.rows[user.parentNode.rowIndex].cells[3].innerText;
 	document.getElementById('contactno').value=mytable.rows[user.parentNode.rowIndex].cells[4].innerText;
+	document.getElementById('pwd').value="**********";
 	scrollToTop();
 	editHtmlTbleSelectedRow(user.parentNode.rowIndex,id);
-	// alert(mytable.rows[user.parentNode.rowIndex]);
-
 }
 function scrollToTop() { 
     window.scrollTo(0, 0); 
 } 
-function editHtmlTbleSelectedRow(rIndex,id) {
-	// alert(id+" "+rIndex);
-	// var mytable = document.getElementById('table');
- //    var fname = document.getElementById("firstname").value,
- //        lname = document.getElementById("lastname").value,
- //        contactno=document.getElementById("contactno").value,
- //        emailId = document.getElementById("emailId").value;
-    	
+function editHtmlTbleSelectedRow(rIndex,id) {	
     	removeSelectedRow(rIndex);
 }
 
@@ -180,30 +145,72 @@ function removeSelectedRow(rIndex) {
 }
 
 function deleteUser(element){
-	// var i = element.parentNode.parentNode.rowIndex;
-	// alert(element.parentNode.rowIndex);
   	document.getElementById("table").deleteRow(element.parentNode.rowIndex);
 }
 
-function valueCity(element){
-	city=element.value;
-	document.getElementById('cityname').innerHTML=city;
-	// document.getElementById('country-list').hide();
-	// alert(element.value);
+// function valueCity(element){
+// 	city=element.value;
+// 	document.getElementById('cityname').innerHTML=city;
+// }
+
+function validateFirstName(element){
+	
+	if(element.value==="" && element.value.length<=2){
+		document.getElementById('firstname').style.backgroundColor="red";
+		document.getElementById('fnamemessage').innerText="Not a valid first name";
+	}else{
+		document.getElementById('fnamemessage').innerText="Valid name";
+		document.getElementById('firstname').style.backgroundColor="skyblue";
+	}
+}
+
+function validateLastName(element){
+	if(element.value==="" && element.value.length<=2){
+		document.getElementById('lastname').style.backgroundColor="red";
+		document.getElementById('lnamemessage').innerText="Not a valid last name";
+	}else{
+		// document.getElementById('firstname').style.backgroundColor="green";
+		document.getElementById('lnamemessage').innerText="Valid lastname";
+		document.getElementById('lastname').style.backgroundColor="skyblue";
+	}
+}
+
+function validateEmail(element){
+	var regexEmailPattern=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$/;
+	var checkEmail=regexEmailPattern.test(element.value); 
+	if(!checkEmail){
+		document.getElementById('emailId').style.backgroundColor="red";
+		document.getElementById('emailmessage').innerText="Not a valid EmailId";
+	}else{
+		document.getElementById('emailmessage').innerText="Valid Email";
+		document.getElementById('emailId').style.backgroundColor="skyblue";
+	}
+}
+
+function validateContact(element){
+	var regexPhonePattern=/^([0-9]{10,11})$/;
+	var value=regexPhonePattern.test(element.value);
+	if(!value){
+		document.getElementById('contactno').style.backgroundColor="red";
+		document.getElementById('contactmessage').innerText="Not a valid Phone number";
+	}else{
+		document.getElementById('contactmessage').innerText="Valid number";
+		document.getElementById('contactno').style.backgroundColor="skyblue";
+	}
+}
+
+function validatePassword(element){
+	// document.getElementById('firstname').style.backgroundColor="red";
+	// if(element.value==="" && element.value.length<=8 &&element.includes){
+	// 	document.getElementById('fnamemessage').innerText="Not a valid password";
+	// }else{
+	// 	// document.getElementById('firstname').style.backgroundColor="green";
+	// 	document.getElementById('fnamemessage').innerText="Valid name";
+	// 	document.getElementById('firstname').style.backgroundColor="skyblue";
+	// }	
 }
 
 function reloadPage(){
 	window.location.reload();
 }
 
-// document.addEventListener('DOMContentLoaded', function() {
-// 	var email = document.getElementById('email');
-// });
-// function checkEmail(email){
-//     var regexEmailPattern=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$/;
-//     if(regexEmailPattern.test(email) === false) {
-//       email.style.border = "1px solid red";
-//     }else if (regexEmailPattern.test(email) === true) { // if was missing here
-//       email.style.border = "1px solid green";
-//     }
-// }

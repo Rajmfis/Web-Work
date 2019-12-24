@@ -51,7 +51,7 @@ ul ul ul {
 }
 ul:before,
 ul:after {
-  content: " "; 
+  content: ""; 
   display: table; 
 }
 
