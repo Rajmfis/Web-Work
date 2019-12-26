@@ -88,6 +88,10 @@ function resetForm(){
   	document.getElementById('emailId').value = "";
   	document.getElementById('contactno').value = "";
   	document.getElementById('pwd').value = "";	
+  	document.getElementById('dropdown').value="";
+	document.getElementById('states').remove();
+	document.getElementById('cityname').remove();
+
 
   	document.getElementById('fnamemessage').innerText="";
   	document.getElementById('lnamemessage').innerText="";
@@ -117,7 +121,7 @@ function createTable(firstname,lastname,inputEmail,phone){
   	cell6.setAttribute("onclick","deleteUser(this);");//setattribute worked here for delete one
   	cell7.innerHTML='<button>Edit</button>';
   	cell7.setAttribute("onclick","editUser(this);");
-  	// cell8.innerHTML=city;
+  	cell8.innerText=city;
   	// document.getElementById('cityname').innerHTML="Select";
 }
 
@@ -208,6 +212,49 @@ function validatePassword(element){
 	// 	document.getElementById('fnamemessage').innerText="Valid name";
 	// 	document.getElementById('firstname').style.backgroundColor="skyblue";
 	// }	
+}
+
+function dropdownfunction(){
+  var country=document.getElementById('dropdown');
+  if(country.value==='India'){
+    var array=["Maharashtra","Delhi"];
+  }else if(country.value==='Australia'){
+    var array=["South Australia","Victoria"];
+  }else if(country.value==='Canada'){
+    var array=["Alberta","Columbia"];
+  }
+  var concatString="<option value=\"\">Select</option>";
+  for(var i=0;i<array.length;i++){
+    concatString+="<option>"+array[i]+"</option>";
+  }
+  concatString="<select required=\"required\" id=\"states\" onchange=\"thirdDropdown(this)\">"+concatString+"</select>";
+  document.getElementById('output').innerHTML=concatString;
+}
+
+function thirdDropdown(element){
+  if(element.value==='Maharashtra'){
+    var cities=["pawai","thane"];
+  }else if(element.value==='Delhi'){
+    var cities=["Noida","South-Delhi"];
+  }else if(element.value==='South Australia'){
+    var cities=["Dunstan", "Mitchell"];   
+  }else if(element.value==='Victoria'){
+    var cities=["Altona", "Euroa"];    
+  }else if(element.value==='Alberta'){
+    var cities=["Acadia", "Bighorn"];    
+  }else if(element.value==='Columbia'){
+    var cities=["Washington"];   
+  }
+  var concatString="<option value=\"\">Select</option>";
+  for(var i=0;i<cities.length;i++){
+    concatString+="<option>"+cities[i]+"</option>";
+  }
+  concatString="<select required=\"required\" id=\"cityname\" onchange=\"cityvalue(this)\">"+concatString+"</select>";
+  document.getElementById('output2').innerHTML=concatString;
+}
+function cityvalue(element){
+  // alert(element.value);
+  city=element.value;
 }
 
 function reloadPage(){

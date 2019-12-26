@@ -45,28 +45,20 @@
             <div id="Password" class="remove"></div>
           </div><br>
          <label>Region</label>
-            <select>
-              <option>Select</option>
-              <option>India</option>
-              <option>Pakistan</option>
-              <option>Bangladesh</option>
-            </select>
-            <select>
-              <option>Select</option>
-              <option>Delhi</option>
-              <option>UttarPradesh</option>
-              <option>Noida</option>
-              <option>Islamabad</option>
-              <option>Sialkot</option>
-              <option>Karachi</option>
-              <option>Dhaka</option>
-            </select>
-            <select>
-              <option>Select</option>
-              <option>Noida</option>
-              <option>Prayagraj</option>
-            </select>
-            <br><br>
+        <select required="required" id="dropdown" onchange="dropdownfunction()">
+          <option value="" name="Select">Select</option>
+          <option>India</option>
+          <option>Australia</option>
+          <option>Canada</option>
+        </select>
+        <span id="output">
+          <!-- resultant tobeadded here -->
+        </span>
+        <span id="output2">
+          <!-- resultant tobeadded here -->
+        </span>
+        <label id="dropdownmessage"></label>
+        <br><br>
         <input type="submit" value="Submit" class="btn btn-primary" id="submit">
         <!-- <input type="reset" name=""> -->
         <p class="bottom-text">
