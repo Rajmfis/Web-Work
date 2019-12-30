@@ -144,6 +144,15 @@ function deleteUser(element) {
 }
 
 function editUser(user) {
+
+	if(document.myform.firstName.value!=='' && document.myform.lastName.value!==''){
+		var clear=confirm('Your entered will be cleared. Do you want to continue');
+		if(clear===false){
+			return ;
+		}
+	}
+
+
 	var mytable = document.getElementById('table');
 	var id = mytable.rows[user.parentNode.parentNode.rowIndex].cells[0].innerText;
 	// alert(id);
@@ -154,6 +163,9 @@ function editUser(user) {
 	document.getElementById('emailId').value = mytable.rows[user.parentNode.parentNode.rowIndex].cells[3].innerText;
 	document.getElementById('contactno').value = mytable.rows[user.parentNode.parentNode.rowIndex].cells[4].innerText;
 	document.getElementById('pwd').value = "**********";
+	document.getElementById('dropdown').value = "";
+	document.getElementById('states').remove();
+	document.getElementById('cityname').remove();
 	todelete = user.parentNode.parentNode.rowIndex;
 	document.getElementById('submit').value="Edit";
 	bool=true;

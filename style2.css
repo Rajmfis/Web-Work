@@ -27,6 +27,35 @@ table{
   margin: 30px 300px;
   padding: 10px 80px;
 }
+/* th,td{
+  /* padding: 0px;
+  text-align: center;
+  text-overflow: ellipsis;
+  max-width: 100px; /* tweak me please 
+  white-space : wrap;
+  overflow : hidden; 
+  /* white-space:pre; 
+  /* word-wrap:break-word; 
+word-wrap: break-word;
+} */
+/* @media all and (max-width:768px) {
+  .calculator tr {    display: table;  width:100%;    }               
+  .calculator td {    display: table-row; }           
+} */
+table {
+  border: 1px solid lightgray;
+}
+table th {
+  background-color: silver;
+  text-align: center;
+  padding: 10px;
+}
+table td {
+  width: 200px;
+  border: 1px dotted silver;
+  word-break: break-all;
+  text-align: center;
+}
 .form-wrap {
   background-color: white;
   padding: 10px 40px;
