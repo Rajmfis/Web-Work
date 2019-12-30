@@ -147,8 +147,20 @@ function editUser(user) {
 
 	if(document.myform.firstName.value!=='' && document.myform.lastName.value!==''){
 		var clear=confirm('Your entered will be cleared. Do you want to continue');
-		if(clear===false){
+		if(clear===false){//scenario when form is dirty, so if it doesn't want to override values we simply return
+			// document.getElementById('dropdown').value = "";
+			// document.getElementById('states').remove();
+			// document.getElementById('cityname').remove();
 			return ;
+		}
+		if(clear==true){//if user wants to override and edit the values then there must be dropdowns so we remove it
+			//reason to put here  as if the below code is put in the code then there will be a problem for select tag as select
+			//tags and options are not yet created for the user and hence it wouldn't work. 
+			document.getElementById('dropdown').value = "";
+			// document.getElementById('states').value = "";
+			// document.getElementById('cityname').value = "";
+			document.getElementById('states').remove();
+			document.getElementById('cityname').remove();
 		}
 	}
 
@@ -156,18 +168,24 @@ function editUser(user) {
 	var mytable = document.getElementById('table');
 	var id = mytable.rows[user.parentNode.parentNode.rowIndex].cells[0].innerText;
 	// alert(id);
+	// alert(user.parentNode.parentNode.rowIndex);
 	globalVariable = id;//retaining the same id of the user and initialized to the first cell
 	// alert(globalVariable);
+	document.getElementById('submit').value="Edit";
 	document.getElementById('firstname').value = mytable.rows[user.parentNode.parentNode.rowIndex].cells[1].innerText;
 	document.getElementById('lastname').value = mytable.rows[user.parentNode.parentNode.rowIndex].cells[2].innerText;
 	document.getElementById('emailId').value = mytable.rows[user.parentNode.parentNode.rowIndex].cells[3].innerText;
 	document.getElementById('contactno').value = mytable.rows[user.parentNode.parentNode.rowIndex].cells[4].innerText;
 	document.getElementById('pwd').value = "**********";
 	document.getElementById('dropdown').value = "";
-	document.getElementById('states').remove();
-	document.getElementById('cityname').remove();
+	// document.getElementById('states').value = "";
+	// document.getElementById('cityname').value = "";
+
+	// document.getElementById('states').remove();
+	// document.getElementById('cityname').remove();
 	todelete = user.parentNode.parentNode.rowIndex;
-	document.getElementById('submit').value="Edit";
+	// alert(todelete);
+	// document.getElementById('submit').value="Edit";
 	bool=true;
 	scrollToTop();
 }
