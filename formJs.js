@@ -297,6 +297,30 @@ function cityvalue(element) {
 	// alert(element.value);
 	city = element.value;
 }
+function loadDefaultUserData(){
+
+	const xhr=new XMLHttpRequest();
+
+	xhr.open('GET','users.json',true);
+
+	xhr.onload=function(){
+		if(this.status===200){
+			// console.log(this.responseText);
+			const userDetails=JSON.parse(this.responseText);
+			var randomUserIndex=Math.floor(Math.random()*3);
+			document.getElementById('firstname').value =userDetails[randomUserIndex].FirstName;
+			document.getElementById('lastname').value = userDetails[randomUserIndex].LastName;
+			document.getElementById('emailId').value = userDetails[randomUserIndex].Email;
+			document.getElementById('contactno').value =userDetails[randomUserIndex].ContactNo;
+			document.getElementById('pwd').value = userDetails[randomUserIndex].Pwd;
+			//can't keep dropdown values explitcitly as on selection of one other generates so can't be kept
+			//as first only is not there 
+		}
+	}
+	xhr.send();
+}
+
+
 
 function reloadPage() {
 	window.location.reload();
