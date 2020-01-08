@@ -1,8 +1,5 @@
-var globalVariable = 1;
-var bool;
-var city;
-var todelete;
-var userId=[];
+
+
 function validate() {
 	
 	if(globalVariable===1){
@@ -13,7 +10,6 @@ function validate() {
 	var firstname = document.myform.firstName.value;
 	var lastname = document.myform.lastName.value;
 	var password = document.myform.password.value;
-	var allValue = true;
 	var regexEmailPattern = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10}).([a-z]{2,10}?)$/;
 	var regexPhonePattern = /^([0-9]{10,11})$/;
 	var checkEmail = regexEmailPattern.test(inputEmail);
@@ -56,8 +52,11 @@ function validate() {
 			document.getElementById("firstName").innerText = "";
 			document.getElementById("Contact").innerText = "";
 			createTable(firstname, lastname, inputEmail, phone);
+			// updateJsonObject(firstname, lastname, inputEmail, phone);
+			alert('completed createtable method and moving to reset form');
 			resetForm();
 			return false;
+			alert('exiting the block');
 		}
 	}
 	if (checkEmail === false && checkPhone === false) {
@@ -82,6 +81,7 @@ document.getElementById("colorpick").addEventListener('change', function () {
 });
 
 function resetForm() {
+	alert('in reset form');
 	document.getElementById('firstname').value = "";
 	document.getElementById('lastname').value = "";
 	document.getElementById('emailId').value = "";
@@ -95,6 +95,7 @@ function resetForm() {
 	document.getElementById('lnamemessage').innerText = "";
 	document.getElementById('emailmessage').innerText = "";
 	document.getElementById('contactmessage').innerText = "";
+	// alert('reset form is working fine');
 }
 
 function createTable(firstname, lastname, inputEmail, phone) {
@@ -126,6 +127,7 @@ function createTable(firstname, lastname, inputEmail, phone) {
 	cell7.innerText = city;
 	document.getElementById('submit').value="Submit";
 	document.getElementById('usercreate').innerText='';
+	alert('createtable is working fine ');
 }
 
 function deleteUser(element) {
@@ -164,7 +166,6 @@ function editUser(user) {
 		}
 	}
 
-
 	var mytable = document.getElementById('table');
 	var id = mytable.rows[user.parentNode.parentNode.rowIndex].cells[0].innerText;
 	// alert(id);
@@ -193,10 +194,8 @@ function scrollToTop() {
 	window.scrollTo(0, 0);
 }
 function editHtmlTbleSelectedRow(rIndex, id) {
-
 	table.deleteRow(rIndex);
 }
-
 
 function validateFirstName(element) {
 
@@ -293,10 +292,12 @@ function thirdDropdown(element) {
 	concatString = "<select required=\"required\" id=\"cityname\" onchange=\"cityvalue(this)\">" + concatString + "</select>";
 	document.getElementById('output2').innerHTML = concatString;
 }
+
 function cityvalue(element) {
 	// alert(element.value);
 	city = element.value;
 }
+
 function loadDefaultUserData(){
 
 	const xhr=new XMLHttpRequest();
@@ -308,20 +309,42 @@ function loadDefaultUserData(){
 			// console.log(this.responseText);
 			const userDetails=JSON.parse(this.responseText);
 			var randomUserIndex=Math.floor(Math.random()*3);
-			document.getElementById('firstname').value =userDetails[randomUserIndex].FirstName;
-			document.getElementById('lastname').value = userDetails[randomUserIndex].LastName;
-			document.getElementById('emailId').value = userDetails[randomUserIndex].Email;
-			document.getElementById('contactno').value =userDetails[randomUserIndex].ContactNo;
-			document.getElementById('pwd').value = userDetails[randomUserIndex].Pwd;
+			// alert(userDetails[randomUserIndex].FirstName);
+			//passing the values we got from the json and storing into the html table instead of putting into the form 
+			createTable(userDetails[randomUserIndex].FirstName,userDetails[randomUserIndex].LastName,userDetails[randomUserIndex].Email,userDetails[randomUserIndex].ContactNo,userDetails[randomUserIndex].Pwd);
 			//can't keep dropdown values explitcitly as on selection of one other generates so can't be kept
 			//as first only is not there 
 		}
 	}
 	xhr.send();
 }
+/*
+function updateJsonObject(firstname, lastname, inputEmail, phone){
 
-
-
+	const obj={
+		firstName:firstname,
+		lastName:lastname,
+		email:inputEmail,
+		phoneno:phone
+	}
+	// alert(obj.firstname);
+	const xhr=new XMLHttpRequest();
+	xhr.open('GET','data.json',true);
+	xhr.onload=function(){
+		
+		var fs = require('fs');
+		var m = JSON.parse(fs.readFileSync('data.json').toString());
+		alert(fs);
+		m.forEach(function(p){
+				alert(p);
+				p.userID+=1;
+				p.users.push(obj);
+		});
+		fs.writeFile('data.json', JSON.stringify(m));
+	}
+	xhr.send();
+}
+*/
 function reloadPage() {
 	window.location.reload();
 }
