@@ -19,32 +19,30 @@ function validate() {
 		// alert("hi js tested");
 		document.getElementById('firstName').innerHTML = "  Please fill the firstName field";
 		document.getElementById('firstName').style.color = "red";
-		allValue = false;
+		
 	}
 	if (lastname === "") {
 		document.getElementById('lastName').innerHTML = "  Please fill the lastName field";
 		document.getElementById('lastName').style.color = "red";
-		allValue = false;
+	
 	}
 	if (inputEmail === "") {
 		document.getElementById('Email').innerHTML = "  Please fill the inputEmail field";
 		document.getElementById('Email').style.color = "red";
-		allValue = false;
+	
 	}
 	if (phone === "") {
 		document.getElementById('Contact').innerHTML = "  Please fill the phone field";
 		document.getElementById('Contact').style.color = "red";
-		allValue = false;
+	
 	}
 	if (password === "") {
 		document.getElementById('Password').innerHTML = "  Please fill the password field";
 		document.getElementById('Password').style.color = "red";
-		allValue = false;
+	
 	}
-	if (allValue === false) {
-		return false;
-	}
-	if (checkPhone && allValue) {
+	
+	if (checkPhone) {
 		if (checkEmail) {
 			document.getElementById("Password").innerText = "";
 			document.getElementById("Email").innerText = "";
@@ -53,7 +51,7 @@ function validate() {
 			document.getElementById("Contact").innerText = "";
 			createTable(firstname, lastname, inputEmail, phone);
 			// updateJsonObject(firstname, lastname, inputEmail, phone);
-			alert('completed createtable method and moving to reset form');
+			// alert('completed createtable method and moving to reset form');
 			resetForm();
 			return false;
 			alert('exiting the block');
@@ -81,7 +79,7 @@ document.getElementById("colorpick").addEventListener('change', function () {
 });
 
 function resetForm() {
-	alert('in reset form');
+
 	document.getElementById('firstname').value = "";
 	document.getElementById('lastname').value = "";
 	document.getElementById('emailId').value = "";
@@ -127,7 +125,7 @@ function createTable(firstname, lastname, inputEmail, phone) {
 	cell7.innerText = city;
 	document.getElementById('submit').value="Submit";
 	document.getElementById('usercreate').innerText='';
-	alert('createtable is working fine ');
+	// alert('createtable is working fine ');
 }
 
 function deleteUser(element) {
@@ -311,6 +309,7 @@ function loadDefaultUserData(){
 			var randomUserIndex=Math.floor(Math.random()*3);
 			// alert(userDetails[randomUserIndex].FirstName);
 			//passing the values we got from the json and storing into the html table instead of putting into the form 
+			city=userDetails[randomUserIndex].City;
 			createTable(userDetails[randomUserIndex].FirstName,userDetails[randomUserIndex].LastName,userDetails[randomUserIndex].Email,userDetails[randomUserIndex].ContactNo,userDetails[randomUserIndex].Pwd);
 			//can't keep dropdown values explitcitly as on selection of one other generates so can't be kept
 			//as first only is not there 
